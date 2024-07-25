@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:sports_events/styles.dart';
 import 'package:sports_events/widgets/button_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,37 +29,44 @@ class LetterSendScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 64,
+                  height: 24,
                 ),
                 Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
-                    Image.asset(
-                      'assets/Background Pattern & Mask.png',
-                      width: 280,
-                      height: 280,
+                    Positioned(
+                      top: 24,
+                      child: Image.asset(
+                        'assets/Background Pattern & Mask.png',
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    Image.asset(
-                      'assets/Frame 2087325780.png',
-                      height: 100,
-                      width: 100,
+                    Positioned(
+                      top: 64,
+                      child: Image.asset(
+                        'assets/Frame 2087325780.png',
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 188),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Письмо отправлено',
+                            style: sendLetterHeader,
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            'На указанную почту было отправлено\nписьмо, в нём содержится ссылка для\nсмены пароля.',
+                            style: sendLetterTextBlack,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                Text(
-                  'Письмо отправлено',
-                  style: sendLetterHeader,
-                ),
-                SizedBox(
-                  height: 12,
-                ),
-                Text(
-                  textAlign: TextAlign.center,
-                  'На указанную почту было отправлено\nписьмо, в нём содержится ссылка для\nсмены пароля.',
-                  style: sendLetterTextBlack,
                 ),
                 SizedBox(
                   height: 12,
